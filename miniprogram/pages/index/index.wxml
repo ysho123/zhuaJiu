@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class='mainWrapper'>
+  <view class='upArea'></view>
+  <view class='middleArea'></view>
+  <view class='bottomArea'></view>
+</view>
+
+<view class='adArea'></view>
