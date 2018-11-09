@@ -1,5 +1,164 @@
 .mainWrapper{
   width: 100%;
-  height: 90%;
-  background-color: #000;
+  height: 100%;
+  background-image : url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/index/bg.png');
+  background-size:750rpx 1334rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.upArea{
+  width: 100%;
+  height: 15%;
+  /* background-color: red;
+  opacity: 0.4; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.index_title{
+  width: 531rpx;
+  height: 88rpx;
+}
+
+.middleArea{
+  width: 100%;
+  height: 70%;
+  /* background-color: green; */
+  /* opacity: 0.4;  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.middle_container{
+  width: 579rpx;
+  height: 651rpx;
+  background-image : url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/index/container.png');
+  background-size:579rpx 651rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle_submitBtn{
+  width: 342rpx;
+  height: 148rpx;
+  background-image : url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/index/submitBtn.png');
+  background-color: transparent;
+  background-size:342rpx 148rpx;
+  margin-top: 10rpx;
+}
+
+.fuhao_active{
+  transform: scale(1.5);
+}
+
+.btn_active{
+  transform: scale(1.1);
+}
+
+.middle_input{
+  width: 80%;
+  height: 30%;
+  margin-top:10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.zhuti{
+  width: 68rpx;
+  height: 33rpx;
+}
+
+.shurukuang{
+  width: 332rpx;
+  height: 140rpx;
+  border-radius: 24rpx;
+  border: solid black 4rpx;
+  background-color: white;
+}
+
+.middle_join{
+  width: 80%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.canyurenshu{
+  width: 117rpx;
+  height: 36rpx;
+}
+
+.countArea{
+  width: 250rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fuhaoArea{
+  width: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  align-items:center;
+  /* background-color: red; */
+}
+
+.fuhaoArea:active{
+  transform: scale(1.1);
+}
+
+.countArea_minus{
+  width: 30rpx;
+  height: 80rpx;
+  background-image: url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/index/minus.png');
+  background-size: 26rpx 7rpx;
+  background-repeat :no-repeat;
+  background-position : center;
+}
+
+/* .countArea_minus:active{
+  transform: scale(1.3);
+} */
+
+.peopleNum{
+  width: 115rpx;
+  height: 50rpx;
+  border: solid 4rpx black;
+  border-radius: 10rpx;
+  text-align: center;
+  background-color: white;
+}
+
+.countArea_add{
+  width: 30rpx;
+  height: 80rpx;
+  background-image: url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/index/add.png');
+  background-size: 25rpx 27rpx;
+  background-repeat :no-repeat;
+  background-position : center;
+}
+
+.middle_choose{
+  width: 80%;
+  height: 15%;
+  background-color: blue;
+  margin-bottom:50rpx;
+}
+
+.bottomArea{
+  width: 100%;
+  height: 15%;
+  background-color: yellow;
+  opacity: 0.4;
 }
