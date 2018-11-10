@@ -4,7 +4,6 @@
     <image src='../../images/index/title.png' class='index_title'></image>
   </view>
 
-
   <view class='middleArea'>
     <view class='middle_container'>
       <view class='middle_input'>

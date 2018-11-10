@@ -31,7 +31,6 @@ Page({
     console.log(res);
     if (res.detail.userInfo) {
       let userInfo = res.detail.userInfo;
-      
       wxUtils.request('userLogin', userInfo,(res)=>{
         if(res.result){
           this.setData({
@@ -40,12 +39,11 @@ Page({
           wx.setStorageSync('userInfo', {hasLog : true});
         }
       })
-    }
-  },
-
-  submit(){
-    if (!this.data.buttonType){
-      console.log('222222222222');
+    }else{
+      wx.showToast({
+        title: '授权才能使用哦',
+        icon : 'loading'
+      })
     }
   },
 
@@ -76,6 +74,24 @@ Page({
     this.setData({
       [modify]: num + 1
     });
+  },
+
+
+  submit() {
+    if (!this.data.buttonType) {
+      //可以提交信息了
+      let data = {
+        content: this.data.inputContent,
+        joinNum: this.data.joinNum,
+        chooseNum: this.data.chooseNum
+      }
+      wxUtils.request('createRoom', data,(res)=>{
+        console.log('submitRes',res);
+      },
+      (err)=>{
+
+      });
+    }
   },
 
 })
