@@ -7,7 +7,8 @@ Page({
     buttonType: '',
     inputContent : '今天谁下楼拿外卖',
     joinNum : 0,
-    chooseNum : 0
+    chooseNum : 0 ,
+    hasSubmit : false
   },
 
   onLoad: function() {
@@ -78,6 +79,15 @@ Page({
 
 
   submit() {
+    if (this.data.hasSubmit){
+      return ;
+    }
+
+    //避免一下点两次出问题
+    this.setData({
+      hasSubmit: true
+    });
+    
     if (!this.data.buttonType) {
       //可以提交信息了
       let data = {
@@ -87,9 +97,15 @@ Page({
       }
       wxUtils.request('createRoom', data,(res)=>{
         console.log('submitRes',res);
+        
       },
       (err)=>{
 
+      },
+      ()=>{
+        this.setData({
+          hasSubmit: false
+        });
       });
     }
   },
