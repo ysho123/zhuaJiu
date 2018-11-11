@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class='mainWrapper'>
+  <view class='upArea'>
+    <image src='../../images/index/title.png' class='index_title'></image>
+  </view>
+
+  <view class='middleArea'>
+    <view class='middle_container'>
+        <view class='questionTitle'>今天谁去拿外卖</view>
+        <view class='clickBtn' hover-class='btn_active' hover-stay-time='100' bindtap='joinGame'></view>
+        <view></view>
+    </view>
+    <button class='middle_shareBtn' hover-class='btn_active' open-type='{{buttonType}}' bindgetuserinfo='getUserInfo' 
+    bindtap="submit"></button>
+  </view>
+
+  <view class='bottomArea'>
+
+  </view>
+</view>

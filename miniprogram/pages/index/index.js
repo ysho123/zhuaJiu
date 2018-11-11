@@ -96,7 +96,11 @@ Page({
         chooseNum: this.data.chooseNum
       }
       wxUtils.request('createRoom', data,(res)=>{
-        console.log('submitRes',res);
+        let ac_id = res.result.ac_id ;
+
+        wx.navigateTo({
+          url: `/pages/goPage/goPage?ac_id=${ac_id}`,
+        })
         
       },
       (err)=>{
