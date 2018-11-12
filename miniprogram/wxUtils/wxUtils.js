@@ -6,6 +6,7 @@ let wxUtils = {
    * getOpenId : 获取openId
    * userLogin : 用户授权，如果有用户信息，更新信息，如果没有用户信息，add信息
    * hasUserInfo : 判断数据库里是否有这个人的信息
+   * joinGame : 抽奖
    */
   request(url,data,success = noop,fail = noop,complete = noop){
     wx.cloud.callFunction({

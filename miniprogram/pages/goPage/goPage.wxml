@@ -6,7 +6,7 @@
 
   <view class='middleArea'>
     <view class='middle_container'>
-        <view class='questionTitle'>今天谁去拿外卖</view>
+        <view class='questionTitle'>{{ac_Name}}</view>
         <view class='clickBtn' hover-class='btn_active' hover-stay-time='100' bindtap='joinGame'></view>
         <view></view>
     </view>

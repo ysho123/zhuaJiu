@@ -8,6 +8,7 @@ Page({
    */
   data: {
     ac_id : '',//当前活动id
+    ac_Name : '今天谁去拿外卖'
   },
 
   /**
@@ -15,12 +16,45 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    let ac_id = options.ac_id;
-    ac_id && this.setData({
-      ac_id : ac_id
+    let { ac_Name,ac_id} = options;
+    this.setData({
+      ac_id : ac_id,
+      ac_Name: ac_Name
     });
-
   },
+
+  joinGame(){
+    let self = this ;
+
+    wxUtils.request('joinGame',{ac_id : this.data.ac_id},(res)=>{
+      let result = res.result;
+      if (result && result.code == 1){
+        //抽签成功
+        console.log('抽签成功', result);
+        wx.navigateTo({
+          url: `/pages/result/result?ac_id=${self.data.ac_id}`,
+        })
+      } else{
+        console.log('抽签成功，但是活动已参加', result);
+        wx.showModal({
+          title: result.msg,
+          content: `回首页重新发起抽签吧`,
+          showCancel : false,
+          confirmText : '回首页去',
+          confirmColor: '	#3cc51f',
+          success:(data)=>{
+            if (data.confirm){
+              wx.redirectTo({
+                url: '/pages/index/index',
+              })
+            }
+          }
+        })
+      }},(err)=>{
+        console.log('抽签请求错误',err) 
+      });
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -69,9 +103,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  joinGame(){
-    wx
   },
 })

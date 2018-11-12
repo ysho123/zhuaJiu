@@ -28,12 +28,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "goPage",
 					"pathName": "pages/goPage/goPage",
+					"query": "ac_id=W-lnwHhEiJmgkPu7"
+				},
+				{
+					"id": -1,
+					"name": "result",
+					"pathName": "pages/result/result",
 					"query": ""
 				}
 			]

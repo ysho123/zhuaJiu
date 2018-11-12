@@ -48,6 +48,12 @@ Page({
     }
   },
 
+  inputWord(e){
+    this.setData({
+      inputContent: e.detail.value
+    });
+  },
+
   inputNum(e){
     let Type = e.currentTarget.dataset.id;
     let value = e.detail.value;
@@ -79,6 +85,8 @@ Page({
 
 
   submit() {
+    let self = this;
+
     if (this.data.hasSubmit){
       return ;
     }
@@ -99,7 +107,7 @@ Page({
         let ac_id = res.result.ac_id ;
 
         wx.navigateTo({
-          url: `/pages/goPage/goPage?ac_id=${ac_id}`,
+          url: `/pages/goPage/goPage?ac_id=${ac_id}&ac_Name=${self.data.inputContent}`,
         })
         
       },

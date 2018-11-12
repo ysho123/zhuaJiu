@@ -8,7 +8,7 @@
     <view class='middle_container'>
       <view class='middle_input'>
         <image src='../../images/index/titleWord.png' class='zhuti'></image>
-        <input class='shurukuang' value='{{inputContent}}'></input>
+        <input class='shurukuang' value='{{inputContent}}' bindinput='inputWord'></input>
       </view>
       <view class='middle_join'>
         <image src='../../images/index/joinManWord.png' class='canyurenshu'></image>
