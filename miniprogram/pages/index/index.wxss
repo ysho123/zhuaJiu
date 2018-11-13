@@ -159,6 +159,6 @@
 .bottomArea{
   width: 100%;
   height: 15%;
-  background-color: yellow;
+  /* background-color: yellow; */
   opacity: 0.4;
 }

@@ -21,8 +21,10 @@
             </view>
         </scroll-view>
     </view>
-    <button class='middle_shareBtn' hover-class='btn_active' open-type='{{buttonType}}' bindgetuserinfo='getUserInfo' 
-    bindtap="submit"></button>
+
+    <view class='refresh' hover-class='btn_active' hover-stay-time='100' bindtap='refresh'>刷新结果</view>
+
+    <button class='middle_shareBtn' hover-class='btn_active' open-type='share'></button>
   </view>
 
   <view class='bottomArea'>

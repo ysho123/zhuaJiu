@@ -10,7 +10,7 @@
 	},
 	"appid": "wx4c126aae66c61a25",
 	"projectname": "zhuaJiu1",
-	"libVersion": "2.3.2",
+	"libVersion": "2.4.0",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -28,13 +28,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "goPage",
 					"pathName": "pages/goPage/goPage",
-					"query": "ac_id=W-lnwHhEiJmgkPu7"
+					"query": "ac_id=W-okzbdokuiPKr_3"
 				},
 				{
 					"id": -1,

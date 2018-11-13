@@ -9,17 +9,23 @@ Page({
   data: {
     mySelfInfo : {},
     userListInfo : [],
+    ac_id : '',
+    ac_Name : '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let {ac_id} = options ;
+    console.log('result',options);
+    let { ac_Name, ac_id } = options;
+    this.setData({
+      ac_id: ac_id,
+      ac_Name: ac_Name
+    });
 
     if(ac_id){
       wxUtils.request('getUserList', {ac_id} ,(res)=>{
-        console.log('结果页',res)
         let result = res.result;
         if (result && result.code == 1){
             this.setData({
@@ -27,10 +33,20 @@ Page({
               userListInfo: result.userListInfo
             })
         }
-
       });
     }
-    
+  },
+
+  refresh(){
+    wxUtils.request('getUserList', { ac_id : this.data.ac_id }, (res) => {
+      let result = res.result;
+      if (result && result.code == 1) {
+        this.setData({
+          mySelfInfo: result.mySelfInfo,
+          userListInfo: result.userListInfo
+        })
+      }
+    });
   },
 
   /**
@@ -78,7 +94,13 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (e) {
+    let self = this;
+    if (e.from == 'button') {
+      return {
+        title: `${self.data.ac_Name}`,
+        path: `pages/goPage/goPage?ac_id=${self.data.ac_id}&ac_Name=${self.data.ac_Name}`
+      }
+    }
   }
 })

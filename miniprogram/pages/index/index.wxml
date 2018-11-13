@@ -27,8 +27,9 @@
         </view>
       </view>
     </view>
-    <button class='middle_submitBtn' hover-class='btn_active' open-type='{{buttonType}}' bindgetuserinfo='getUserInfo' 
-    bindtap="submit"></button>
+    <button wx:if='{{needLog}}' class='middle_submitBtn' hover-class='btn_active' open-type='getUserInfo' bindgetuserinfo='getUserInfo' 
+    ></button>
+    <button wx:else class='middle_submitBtn' hover-class='btn_active'  bindtap="submit"></button>
   </view>
 
   <view class='bottomArea'>

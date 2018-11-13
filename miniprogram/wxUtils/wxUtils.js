@@ -9,6 +9,7 @@ let wxUtils = {
    * joinGame : 抽奖
    */
   request(url,data,success = noop,fail = noop,complete = noop){
+    this.showLoading();
     wx.cloud.callFunction({
       name: url,
       data: data,
@@ -19,17 +20,20 @@ let wxUtils = {
         fail(err);
       },
       complete : ()=>{
+        this.hideLoading();
         complete();
       }
     })
   },
 
-  getOpenId(success,fail){
+  getOpenId(success = noop, fail = noop, complete = noop){
+    this.showLoading();
     let openId = wx.getStorageSync('openId');
 
     if (openId){
       // console.log('本地有缓存')
       success && success(openId);
+      this.hideLoading();
     }else{
       this.request('getOpenId',{},
         (res)=>{
@@ -39,6 +43,9 @@ let wxUtils = {
         },
         (err)=>{
           fail(err);
+        },
+        ()=>{
+          this.hideLoading();
         }
       )
     }
@@ -63,6 +70,16 @@ let wxUtils = {
     }
   },
 
+  showLoading(){
+    wx.showLoading({
+      title: '请求中',
+      mask : true,
+    })
+  },
+
+  hideLoading(){
+    wx.hideLoading();
+  }
 
 }
 

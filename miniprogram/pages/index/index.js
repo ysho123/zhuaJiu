@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    buttonType: '',
+    needLog: false,
     inputContent : '今天谁下楼拿外卖',
     joinNum : 0,
     chooseNum : 0 ,
@@ -18,14 +18,15 @@ Page({
       //判断此用户有没有在数据库留下记录
       wxUtils.hasUserInfo(()=>{
         this.setData({
-          buttonType: 'getUserInfo'
+          needLog: true
         });
       }
       );
     },
     (err)=>{
       console.log(err);
-    })
+    },
+    )
   },
 
   getUserInfo(res) {
@@ -35,9 +36,10 @@ Page({
       wxUtils.request('userLogin', userInfo,(res)=>{
         if(res.result){
           this.setData({
-            buttonType : ''
+            needLog: false
           });
           wx.setStorageSync('userInfo', {hasLog : true});
+          this.submit();
         }
       })
     }else{
@@ -84,42 +86,35 @@ Page({
   },
 
 
-  submit() {
+  submit(e) {
     let self = this;
-
-    if (this.data.hasSubmit){
-      return ;
+    // if (this.data.hasSubmit){
+    //   return ;
+    // }
+    // //避免一下点两次出问题
+    // this.setData({
+    //   hasSubmit: true
+    // });
+    //可以提交信息了
+    let data = {
+      content: this.data.inputContent,
+      joinNum: this.data.joinNum,
+      chooseNum: this.data.chooseNum
     }
+    wxUtils.request('createRoom', data,(res)=>{
+      let ac_id = res.result.ac_id ;
+      wx.navigateTo({
+        url: `/pages/goPage/goPage?ac_id=${ac_id}&ac_Name=${self.data.inputContent}`,
+      })
+    },
+    (err)=>{
 
-    //避免一下点两次出问题
-    this.setData({
-      hasSubmit: true
+    },
+    ()=>{
+      // this.setData({
+      //   hasSubmit: false
+      // });
     });
-    
-    if (!this.data.buttonType) {
-      //可以提交信息了
-      let data = {
-        content: this.data.inputContent,
-        joinNum: this.data.joinNum,
-        chooseNum: this.data.chooseNum
-      }
-      wxUtils.request('createRoom', data,(res)=>{
-        let ac_id = res.result.ac_id ;
-
-        wx.navigateTo({
-          url: `/pages/goPage/goPage?ac_id=${ac_id}&ac_Name=${self.data.inputContent}`,
-        })
-        
-      },
-      (err)=>{
-
-      },
-      ()=>{
-        this.setData({
-          hasSubmit: false
-        });
-      });
-    }
   },
 
 })
