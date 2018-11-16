@@ -43,6 +43,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .middle_submitBtn{
@@ -52,6 +53,18 @@
   background-color: transparent;
   background-size:342rpx 148rpx;
   margin-top: 10rpx;
+}
+
+.hint{
+  width: 134rpx;
+  height: 77rpx;
+  background-image: url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/index/zhuajiuguize.png');
+  background-size: 134rpx 77rpx;
+  background-repeat :no-repeat;
+  background-position : center;
+  position: absolute;
+  right: 0;
+  top: -20rpx;
 }
 
 .fuhao_active{
@@ -161,4 +174,58 @@
   height: 15%;
   /* background-color: yellow; */
   opacity: 0.4;
+}
+
+.hintWrapper{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left:  0;
+  background-color:rgba(0,0,0,0.8); /* IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂，但解析为透明 */
+  background-size:750rpx 1334rpx; 
+  z-index: 100;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hintContainer{
+  width: 510rpx;
+  height: 379rpx;
+  background-image: url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/index/hintContainer.png');
+  background-size: 510rpx 379rpx;
+  position: relative;
+}
+
+.hintContainer_show{
+  animation: showAction 1s 1;
+}
+
+@keyframes showAction{
+  from{
+    transform: scale(0.1)
+  }
+  to{
+    transform: scale(1)
+  }
+}
+
+.hint_content{
+  width: 418rpx;
+  height: 177rpx;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform:translate( -50%, -50%);
+}
+
+.hint_close{
+  position: absolute;
+  width: 179rpx;
+  height: 168rpx;
+  top: -50rpx;
+  right: -50rpx;
 }

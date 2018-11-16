@@ -1,6 +1,17 @@
 const noop = function(){};
 
 let wxUtils = {
+  showLoading() {
+    wx.showLoading({
+      title: '请求中',
+      mask: true,
+    })
+  },
+
+  hideLoading() {
+    wx.hideLoading();
+  },
+
   /**
    * url 说明：
    * getOpenId : 获取openId
@@ -70,16 +81,14 @@ let wxUtils = {
     }
   },
 
-  showLoading(){
-    wx.showLoading({
-      title: '请求中',
-      mask : true,
-    })
+  showPopMessage(title,success=false,sec=1000){
+    wx.showToast({
+      title: title ,
+      icon: success ? 'success' : 'loading',
+      duration : sec ,
+      mask : true ,
+    });
   },
-
-  hideLoading(){
-    wx.hideLoading();
-  }
 
 }
 

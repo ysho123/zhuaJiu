@@ -53,7 +53,7 @@ exports.main = async (event, context) => {
   }
   //时间
   let date = new Date();
-  let recordTime = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+  let recordTime = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()+8}:${date.getMinutes()}`;
   //昵称
   let {nickName,userAvatar} = await getUserNameAndAvatar(db,openId);
 

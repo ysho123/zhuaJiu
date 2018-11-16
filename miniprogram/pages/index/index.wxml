@@ -6,6 +6,7 @@
 
   <view class='middleArea'>
     <view class='middle_container'>
+      <view class='hint' hover-class='btn_active' hover-stay-time='100' bindtap='showHint'></view>  
       <view class='middle_input'>
         <image src='../../images/index/titleWord.png' class='zhuti'></image>
         <input class='shurukuang' value='{{inputContent}}' bindinput='inputWord'></input>
@@ -34,6 +35,13 @@
 
   <view class='bottomArea'>
   
+  </view>
+</view>
+
+<view class='hintWrapper' wx:if='{{hintShow}}'>
+  <view class="'hintContainer' {{hintShow ? 'hintContainer_show' : ''}}">
+    <image src='../../images/hint/close.png' class='hint_close' bindtap='closeHint'></image>
+    <image src='../../images/hint/content.png' class='hint_content'></image>
   </view>
 </view>
 
