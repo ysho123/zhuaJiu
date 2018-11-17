@@ -38,7 +38,7 @@ Page({
           this.setData({
             needLog: false
           });
-          wx.setStorageSync('userInfo', {hasLog : true});
+          // wx.setStorageSync('userInfo', {hasLog : true});
           this.submit();
         }
       })

@@ -21,8 +21,10 @@ exports.main = async (event, context) => {
   }).get();
   let userDocument = creater_userInfo.data[0] || null;
   let creater_nickName = 'undifined';
+  let creater_avatar = 'https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/result/user-unlogin.png';
   if (userDocument){
     creater_nickName = userDocument['nickName'];
+    creater_avatar = userDocument['avatarUrl'];
   }else{
     return {code : 0,msg : '用户未授权'}
   }
@@ -35,7 +37,8 @@ exports.main = async (event, context) => {
     luckManArr: luckManArr , 
     recordTime: recordTime,
     finished : false ,
-    creater_nickName : creater_nickName
+    creater_nickName : creater_nickName,
+    creater_avatar: creater_avatar,
   }
 
   try{

@@ -71,24 +71,25 @@ Page({
     function successFuc(res){
       let self = this;
       let result = res.result;
-      if (result && (result.code == 1 || result.code == 3 || result.code == 4)) {
-        //抽签成功
-        wx.navigateTo({
-          url: `/pages/result/result?ac_id=${self.data.ac_id}&ac_Name=${self.data.ac_Name}`,
-        })
-      } else {
+      if (result && (result.code == 0 || result.code == 2)) {
+        //加入房间异常
         wx.showModal({
           title: result.msg,
           content: `回首页重新发起抽签吧`,
           showCancel: false,
-          confirmText: '回首页',
+          confirmText: '去首页',
           success: (data) => {
             if (data.confirm) {
               wx.redirectTo({
-                url: '/pages/index/index',
+                url: '../index/index',
               })
             }
           }
+        })
+      } else {
+        //加入房间成功 可能情况1、直接抽签  2、自己抽过签   3、抽签活动已满人 
+        wx.navigateTo({
+          url: `/pages/result/result?ac_id=${self.data.ac_id}&ac_Name=${self.data.ac_Name}`,
         })
       }
     }
@@ -97,12 +98,15 @@ Page({
       let self = this;
       console.log('抽签请求错误', err)
     }
-
     function complete(){
       let self = this;
-      
     }
+  },
 
+  backIndex(e){
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
   },
 
   /**
@@ -152,11 +156,11 @@ Page({
    */
   onShareAppMessage: function (e) {
     let self = this;
-    if(e.from == 'button'){
+    // if(e.from == 'button'){
       return {
-        title : `${self.data.ac_Name}`,
+        title : `抽出那个幸运仔 : ${self.data.ac_Name}`,
         path: `pages/goPage/goPage?ac_id=${self.data.ac_id}&ac_Name=${self.data.ac_Name}`
       }
-    }
+    // }
   }
 })

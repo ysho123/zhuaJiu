@@ -6,6 +6,8 @@
 
   <view class='middleArea'>
     <view class='middle_container'>
+        <view class='backIndex' hover-class='btn_active' hover-stay-time='100' bindtap='backIndex'></view>  
+
         <view class='middle_wordInfo'>
           <image class="{{mySelfInfo.isLuckyMan ? 'middle_title_Catched' : 'middle_title_noCatched'}}" src="{{mySelfInfo.isLuckyMan ? '../../images/result/beCatched.png' : '../../images/result/notBeCatched.png'}}"></image>
           <view class='middle_text'>{{mySelfInfo.hasEntered}}/{{mySelfInfo.joinNum}}张卡片,{{mySelfInfo.luckysNum}}/{{mySelfInfo.chooseNum}}个幸运儿已被选中</view>

@@ -1,0 +1,56 @@
+<!--pages/mypage/mypage.wxml-->
+<view class="mypage">
+  <view class="logs_box">
+    <image class="logs_bg" mode="aspectFit" src="../../images/Tab/mine_container.png"></image>
+    <!-- 背景图部分结束 -->
+      <!-- 排行页面内容 -->
+      <view class="ranking-main">
+        <!-- 导航栏部分 -->
+        <view class="ranking-tabar">
+          <view class="ranking-tabar-item " data-id="{{item.id}}" bindtap='tabarClick' wx:for="{{tabar}}" wx:key="tabar">
+            <view class="ranking-tabar-item-content {{item.id==clickid?'clickred':''}}">
+              {{item.text}}
+            </view>
+          </view>
+        </view>
+        <!-- 导航栏部分结束 -->
+        <scroll-view scroll-y="true" bindscrolltolower="scrollbottom" style="height:700rpx;margin-top:10rpx;"  scroll-top="{{scrollTop}}">
+          <!-- 排行列表部分 -->
+          <view class="ranking-list">
+            <view class="ranking-list-content" wx:if='{{resultList.length > 0}}'>
+              <view class="ranking-list-item  horizontal" wx:for="{{resultList}}" wx:key="{{resultList}}">
+                <!-- 删除 -->
+                <view class="ranking-list-item-del" data-id="{{item.id}}">
+                </view>
+                <view class="ranking-list-item-content flex-1 horizontal" data-aid="{{item.id}}" bindtap='goResult'>
+                  <!-- 类别图 -->
+                  <view class='ranking-list-item-type'>                 
+                    <image class="type_img" src="../../images/Tab/zhuajiu.png"></image>
+                  </view>
+                  <!-- 主题 -->
+                  <view class='ranking-list-item-title flex-1' >
+                    <view class="hd_title">{{item.activeName}}</view>
+                    <view class="hd_time">{{item.recordTime}}</view>
+                  </view>
+                  <!-- 用户信息 -->
+                  <view class='ranking-list-item-userPic'>
+                    <image class="userPic" src="{{item.creater_avatar}}"></image>
+                  </view>
+                  <view class='ranking-list-item-userName'>
+                    <view class="hd_userName">{{item.creater_nickName}}</view>
+                    <view class="hd_num">{{item.joinNum}}人</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="nologs" wx:else>
+                <image class="no_img" src="../../images/Tab/cry.png"></image>
+                <view class="no_txt">还没有记录，赶快去参加吧~</view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <!-- 排行页面内容结束 -->
+  </view>
+</view>
+   

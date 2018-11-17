@@ -32,23 +32,28 @@ async function getuserListInfo(db, ac_id, openId) {
 }
 
 async function getMySelfInfo(userListInfo, ac_id, openId){
-  let myRecord = userListInfo.find((item)=>{
-    return item.openId == openId
-  });
+  if (userListInfo.length > 0){
+    let { joinNum, chooseNum } = userListInfo[0];//总共多少人，要抽多少人
 
-  let { isLuckyMan, joinNum, chooseNum} = myRecord ;//是否抽中和总参与人数
-  let hasEntered = userListInfo.length;//已经进入多少人
+    let hasEntered = userListInfo.length;//已经进入多少人
 
-  let luckysNum = userListInfo.filter((item,key)=>{
-    return item.isLuckyMan == true ;
-  }).length; //已经出了多少个幸运的
+    let luckysNum = userListInfo.filter((item, key) => {
+      return item.isLuckyMan == true;
+    }).length; //已经出了多少个幸运的
 
-  return {
-    isLuckyMan ,
-    joinNum ,
-    hasEntered,
-    luckysNum ,
-    openId ,
-    chooseNum
+    let myRecord = userListInfo.find((item) => {
+      return item.openId == openId
+    });
+
+    let isLuckyMan = myRecord['isLuckyMan'] || false;//我自己是不是luckyMan (如果我进来人已经满了，也返回false)
+
+    return {
+      isLuckyMan,
+      joinNum,
+      hasEntered,
+      luckysNum,
+      openId,
+      chooseNum
+    }
   }
 }

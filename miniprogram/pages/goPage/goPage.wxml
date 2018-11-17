@@ -6,6 +6,7 @@
 
   <view class='middleArea'>
     <view class='middle_container'>
+        <view class='backIndex' hover-class='btn_active' hover-stay-time='100' bindtap='backIndex'></view>  
         <view class='questionTitle'>{{ac_Name}}</view>
         <button wx:if='{{needLog}}' class='clickBtn' hover-class='btn_active' hover-stay-time='100' open-type='getUserInfo' bindgetuserinfo='getUserInfo' ></button>
         <button wx:else class='clickBtn' hover-class='btn_active' hover-stay-time='100' bindtap='joinGame'></button>

@@ -6,11 +6,11 @@ cloud.init();
 const db = cloud.database()
 
 const backMsg = [
-  {code: 0,msg:"没有对应活动"},
-  {code: 3,msg:"活动已经结束了"},
-  {code: 4,msg:"已经参与过本次活动了"},
-  {code: 1,msg:"抽奖成功"},
-  {code: 2,msg:"抽奖读写过程中出现问题"}
+  { code: 0, msg: "没有找到对应活动" }, //返回首页
+  { code: 1, msg: "抽奖成功" },
+  { code: 2, msg: "抽奖过程中出问题啦" },//返回首页
+  { code: 3, msg: "活动已经结束了" },
+  { code: 4, msg: "已经参与过本次活动了" },
 ]
 
 // 云函数入口函数
@@ -18,21 +18,26 @@ exports.main = async (event, context) => {
   let {ac_id} = event;
   let {openId} = event.userInfo ;
 
-  let ac_Info = await db.collection('activity_list').doc(ac_id).get();
+  let ac_Info;
 
+  //没有对应id 没有找到要参加的活动
+  try{
+    ac_Info = await db.collection('activity_list').doc(ac_id).get();
+  }catch(err){
+    return backMsg[0];
+  }
+  
   let data = ac_Info.data || null ;
   
-   //没有找到要参加的活动
-  if (!data) return backMsg[0];
    //活动已经结束了
-  if (data.finished) return backMsg[1];
+  if (data.finished) return backMsg[3];
   //如果自己参与过这个活动了
   let myLogRes = await db.collection('joinLog').where({
     ac_id : ac_id,
     openId : openId
   }).get();
   let myLog = myLogRes.data[0] || null ;
-  if (myLog) return backMsg[2];
+  if (myLog) return backMsg[4];
 
   //校验都过了，开始参加活动
   let luckManArr = data.luckManArr;
@@ -60,15 +65,18 @@ exports.main = async (event, context) => {
   //写入的数据
   let writeData =  {
     ac_id,
-    openId,
     chooseNum: data.chooseNum,
     joinNum: data.joinNum,
+    userOpenId : openId,
     userName: nickName,
     userAvatar: userAvatar,
-    ac_name: data.activeName,
+    activeName: data.activeName,
+    creater_nickName: data.creater_nickName,
+    creater_openId: data.creater_openId,
+    creater_avatar: data.creater_avatar,
     isLuckyMan,
     joinIndex: myIndex,
-    joinTime: recordTime,
+    recordTime: recordTime,
   }
 
   try{
@@ -82,9 +90,9 @@ exports.main = async (event, context) => {
         }
       })
     }
-    return backMsg[3];
+    return backMsg[1];
   }catch(err){
-    return backMsg[4];
+    return backMsg[2];
   }
 }
 

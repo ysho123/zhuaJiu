@@ -96,11 +96,17 @@ Page({
    */
   onShareAppMessage: function (e) {
     let self = this;
-    if (e.from == 'button') {
+    // if (e.from == 'button') {
       return {
-        title: `${self.data.ac_Name}`,
+        title: `谁是那个幸运娃 : ${self.data.ac_Name}`,
         path: `pages/goPage/goPage?ac_id=${self.data.ac_id}&ac_Name=${self.data.ac_Name}`
       }
-    }
-  }
+    // }
+  },
+
+  backIndex(e) {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
 })

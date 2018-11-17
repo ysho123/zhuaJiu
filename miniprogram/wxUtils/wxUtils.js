@@ -65,9 +65,9 @@ let wxUtils = {
   hasUserInfo(callBack){
     let hasLog = wx.getStorageSync('userInfo');
 
-    if(hasLog){
-      console.log('缓存有用户信息')      
-    }else{
+    // if(hasLog){
+    //   console.log('缓存有用户信息')      
+    // }else{
       this.request('hasUserInfo',{},
         (res)=>{
           if(res.result.hasLog){
@@ -78,7 +78,7 @@ let wxUtils = {
           }
         }
       )
-    }
+    // }
   },
 
   showPopMessage(title,success=false,sec=1000){

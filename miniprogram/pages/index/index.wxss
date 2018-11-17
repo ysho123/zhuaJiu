@@ -55,6 +55,10 @@
   margin-top: 10rpx;
 }
 
+.middle_submitBtn::after{
+  border: none; 
+}
+
 .hint{
   width: 134rpx;
   height: 77rpx;
