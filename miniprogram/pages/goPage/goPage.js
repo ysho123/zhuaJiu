@@ -42,7 +42,7 @@ Page({
     (err) => {
         console.log(err);
       })
-  } , 
+  }, 
 
   getUserInfo(res) {
     console.log(res);

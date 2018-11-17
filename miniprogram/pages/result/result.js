@@ -17,8 +17,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('result',options);
-    let { ac_Name, ac_id } = options;
+    let { ac_id } = options;
+    let ac_Name = options.ac_Name || '来抓阄呀'
     this.setData({
       ac_id: ac_id,
       ac_Name: ac_Name
@@ -26,6 +26,7 @@ Page({
 
     if(ac_id){
       wxUtils.request('getUserList', {ac_id} ,(res)=>{
+        console.log('结果页',res);
         let result = res.result;
         if (result && result.code == 1){
             this.setData({

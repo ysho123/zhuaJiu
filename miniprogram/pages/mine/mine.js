@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    clickid: 2,            //默认世界排行
+    clickid: 1,            //默认世界排行
     tabar: [
       {
         id: 1,
@@ -47,12 +47,20 @@ Page({
 
     wxUtils.request('getMineRecord', { listType: reqType },(res)=>{
       console.log('minePage',res);
+      this.setData({
+        resultList : res.result.list
+      });
     })
   },
 
   // 跳转活动结果页
   goResult:function(e){
-    console.log(e)
+    let ac_id = e.currentTarget.dataset.id ;
+    console.log(this.data.clickid)
+    wx.redirectTo({
+      url: `../result/result?ac_id=${ac_id}`,
+    })
+
 
   },
   /**
@@ -87,7 +95,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    wx.stopPullDownRefresh()
+    // wx.stopPullDownRefresh()
   },
 
   /**

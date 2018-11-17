@@ -13,17 +13,21 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar" :{
-    "color" : "#EEEE00",
-    "selectedColor" : "#7FFF00",
-    "backgroundColor" : "#FFFAFA",
+    "color" : "#696969",
+    "selectedColor" : "#FFD700",
+    "backgroundColor" : "#FFFFFF",
     "list" : [
       {
         "pagePath" : "pages/index/index",
-        "text" : "抽签"
+        "text" : "抽签",
+        "iconPath" : "images/Tab/index_gray.png",
+        "selectedIconPath" : "images/Tab/index_blink.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "images/Tab/mine_gray.png",
+        "selectedIconPath": "images/Tab/mine_blink.png"
       }
     ]
   }

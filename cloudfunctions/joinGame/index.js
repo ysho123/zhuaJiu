@@ -34,7 +34,7 @@ exports.main = async (event, context) => {
   //如果自己参与过这个活动了
   let myLogRes = await db.collection('joinLog').where({
     ac_id : ac_id,
-    openId : openId
+    userOpenId : openId
   }).get();
   let myLog = myLogRes.data[0] || null ;
   if (myLog) return backMsg[4];

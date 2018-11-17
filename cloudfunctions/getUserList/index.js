@@ -42,7 +42,7 @@ async function getMySelfInfo(userListInfo, ac_id, openId){
     }).length; //已经出了多少个幸运的
 
     let myRecord = userListInfo.find((item) => {
-      return item.openId == openId
+      return item.userOpenId == openId
     });
 
     let isLuckyMan = myRecord['isLuckyMan'] || false;//我自己是不是luckyMan (如果我进来人已经满了，也返回false)

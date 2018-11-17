@@ -17,7 +17,7 @@
               <image class='avatar' src='{{item.userAvatar}}'></image>
               <view class='wordInfo'>
                 <view class='user_nickName'>{{item.userName}}</view>
-                <view class='user_time'>{{item.joinTime}}</view>
+                <view class='user_time'>{{item.recordTime}}</view>
               </view>
               <image class="{{item.isLuckyMan ? 'user_result_catched' : 'user_result_notCatched'}}" src="{{item.isLuckyMan ? '../../images/result/catched.png' : '../../images/result/notCatched.png'}}"></image>
             </view>

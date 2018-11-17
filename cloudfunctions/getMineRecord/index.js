@@ -52,7 +52,7 @@ async function getMyCreateList(db,command,openId){
 
 async function getMyJoinList(db, command,openId) {
   let createList = await db.collection('joinLog').where({
-    openId : openId,
+    userOpenId : openId,
     creater_openId: command.neq(openId)
   }).get();
 
