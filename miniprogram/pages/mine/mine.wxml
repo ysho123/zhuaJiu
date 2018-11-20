@@ -20,9 +20,9 @@
             <view class="ranking-list-content" wx:if='{{resultList.length > 0}}'>
               <view class="ranking-list-item  horizontal" wx:for="{{resultList}}" wx:key="{{resultList}}">
                 <!-- 删除 -->
-                <view class="ranking-list-item-del" data-id="{{clickid == 1 ? item._id : item.ac_id}}">
+                <view class="ranking-list-item-del">
                 </view>
-                <view class="ranking-list-item-content flex-1 horizontal" data-id="{{clickid == 1 ? item._id : item.ac_id}}" bindtap='goResult'>
+                <view class="ranking-list-item-content flex-1 horizontal" data-id="{{clickid == 1 ? item._id : item.ac_id}}"  data-acname="{{item.activeName}}" bindtap='goResult'>
                   <!-- 类别图 -->
                   <view class='ranking-list-item-type'>                 
                     <image class="type_img" src="../../images/Tab/zhuajiu.png"></image>

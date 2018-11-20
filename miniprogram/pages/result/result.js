@@ -40,6 +40,7 @@ Page({
 
   refresh(){
     wxUtils.request('getUserList', { ac_id : this.data.ac_id }, (res) => {
+      console.log(res);
       let result = res.result;
       if (result && result.code == 1) {
         this.setData({
@@ -99,7 +100,7 @@ Page({
     let self = this;
     // if (e.from == 'button') {
       return {
-        title: `谁是那个幸运娃 : ${self.data.ac_Name}`,
+        title: `谁会是那个幸运娃 : ${self.data.ac_Name}`,
         path: `pages/goPage/goPage?ac_id=${self.data.ac_id}&ac_Name=${self.data.ac_Name}`
       }
     // }
