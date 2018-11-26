@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/goPage/goPage",
     "pages/result/result",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/test/test"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -12,16 +13,16 @@
     "navigationBarTitleText": "来抓阄呀老铁",
     "navigationBarTextStyle": "black"
   },
-  "tabBar" :{
-    "color" : "#696969",
-    "selectedColor" : "#FFD700",
-    "backgroundColor" : "#FFFFFF",
-    "list" : [
+  "tabBar": {
+    "color": "#696969",
+    "selectedColor": "#FFD700",
+    "backgroundColor": "#FFFFFF",
+    "list": [
       {
-        "pagePath" : "pages/index/index",
-        "text" : "抽签",
-        "iconPath" : "images/Tab/index_gray.png",
-        "selectedIconPath" : "images/Tab/index_blink.png"
+        "pagePath": "pages/index/index",
+        "text": "抽签",
+        "iconPath": "images/Tab/index_gray.png",
+        "selectedIconPath": "images/Tab/index_blink.png"
       },
       {
         "pagePath": "pages/mine/mine",
