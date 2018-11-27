@@ -56,6 +56,14 @@
   align-items: center;
 }
 
+.middle_title{
+  font-size: 32rpx;
+  color: 	rgba(73, 59, 45, 0.836);
+  font-family: '粗体';
+  font-weight:bold;
+  letter-spacing: 12rpx;
+}
+
 .middle_title_noCatched{
   width: 290rpx;
   height:43rpx;

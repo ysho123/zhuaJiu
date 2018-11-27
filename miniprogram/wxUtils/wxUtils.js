@@ -90,6 +90,39 @@ let wxUtils = {
     });
   },
 
+  showPopModel(successFuc=noop){
+    wx.showModal({
+      title: '提示',
+      content: '分享之后才能抽签哟',
+      showCancel: false,
+      cancelText:'取消',
+      cancelColor:'#000000',
+      confirmText: '好的',
+      confirmColor: '	#FF8C00',
+      success : (res)=>{
+        if (res.confirm) {
+          console.log('用户点击确定')
+          successFuc(res);
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    });
+  },
+
+  downloadFile(fileId, successCallBack = noop, failCallBack = noop){
+    wx.cloud.downloadFile({
+      fileID: fileId, // 文件 ID
+      success: res => {
+        // 返回临时文件路径
+        successCallBack(res);
+      },
+      fail: err => {
+        failCallBack(err)
+      }
+    })
+  },
+
 }
 
 module.exports = wxUtils;

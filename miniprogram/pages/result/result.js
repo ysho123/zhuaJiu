@@ -23,6 +23,7 @@ Page({
       ac_id: ac_id,
       ac_Name: ac_Name
     });
+    wx.setNavigationBarTitle({ title: ac_Name });
 
     if(ac_id){
       wxUtils.request('getUserList', {ac_id} ,(res)=>{

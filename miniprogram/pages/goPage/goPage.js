@@ -10,7 +10,8 @@ Page({
     ac_id : '',//当前活动id
     ac_Name : '今天谁去拿外卖',
     needLog : false,//需要授权吗？
-    hasSubmit : false,
+    hasShared : false,//是否已经分享过了
+    showSharedPic : false,//是否展示分享图片
   },
 
   /**
@@ -23,6 +24,7 @@ Page({
       ac_id : ac_id,
       ac_Name: ac_Name
     });
+    wx.setNavigationBarTitle({ title: ac_Name});
 
     this.userLogin();
   },
@@ -66,7 +68,11 @@ Page({
   },
 
   joinGame(){
-    wxUtils.request('joinGame', { ac_id: this.data.ac_id }, successFuc.bind(this), failFuc.bind(this), complete.bind(this));
+    if(this.data.hasShared){
+      wxUtils.request('joinGame', { ac_id: this.data.ac_id }, successFuc.bind(this), failFuc.bind(this), complete.bind(this));
+    }else{
+      wxUtils.showPopModel();
+    }
 
     function successFuc(res){
       let self = this;
@@ -80,7 +86,7 @@ Page({
           confirmText: '去首页',
           success: (data) => {
             if (data.confirm) {
-              wx.redirectTo({
+              wx.switchTab({
                 url: '../index/index',
               })
             }
@@ -101,6 +107,20 @@ Page({
     function complete(){
       let self = this;
     }
+  },
+
+  getShareImage(e){
+    console.log('getImage');
+    this.setData({
+      showSharedPic : true
+    })
+  },
+
+  closeComponent(e){
+    console.log('close Component');
+    this.setData({
+      showSharedPic: false
+    })
   },
 
   backIndex(e){
@@ -155,11 +175,14 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (e) {
-    let self = this;
     // if(e.from == 'button'){
+      this.setData({
+        hasShared : true
+      })
+
       return {
-        title : `抽出那个幸运仔 : ${self.data.ac_Name}`,
-        path: `pages/goPage/goPage?ac_id=${self.data.ac_id}&ac_Name=${self.data.ac_Name}`
+        title : `抽出那个幸运仔 : ${this.data.ac_Name}`,
+        path: `pages/goPage/goPage?ac_id=${this.data.ac_id}&ac_Name=${this.data.ac_Name}`
       }
     // }
   }

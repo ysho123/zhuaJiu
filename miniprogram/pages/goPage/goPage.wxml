@@ -11,10 +11,18 @@
         <button wx:if='{{needLog}}' class='clickBtn' hover-class='btn_active' hover-stay-time='100' open-type='getUserInfo' bindgetuserinfo='getUserInfo' ></button>
         <button wx:else class='clickBtn' hover-class='btn_active' hover-stay-time='100' bindtap='joinGame'></button>
     </view>
-    <button class='middle_shareBtn' hover-class='btn_active' open-type='share'></button>
+    <view class='middleShareArea'>
+        <button class='middle_shareBtn2' hover-class='btn_active' bindtap='getShareImage'></button>
+        <button class='middle_shareBtn1' hover-class='btn_active' open-type='share'></button>
+    </view>
+    <image class='middle_hit' src='../../images/goPage/bottomHit.png'></image>
   </view>
 
   <view class='bottomArea'>
 
   </view>
+
+  <sharedComponent class='sharePicArea' wx:if='{{showSharedPic}}' bind:closeComponent="closeComponent">
+    
+  </sharedComponent>
 </view>

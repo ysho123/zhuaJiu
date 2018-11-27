@@ -165,7 +165,9 @@ async function getQrCode(rp,accessToken){
 
   let jsonStr = {
     "path":"pages/index/index",
-    "auto_color" : true
+    "auto_color" : true,
+    // "is_hyaline" : true,
+    "width" : 300
   };
 
   console.log(jsonStr);

@@ -31,5 +31,8 @@
         "selectedIconPath": "images/Tab/mine_blink.png"
       }
     ]
+  },
+  "usingComponents": {
+    "sharedComponent": "component/sharedComponent/sharedComponent"
   }
 }

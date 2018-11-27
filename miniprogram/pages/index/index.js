@@ -105,6 +105,11 @@ Page({
       return;
     }
 
+    if (this.data.joinNum > 1000){
+      wxUtils.showPopMessage('不能大于1000人', false, 1000);
+      return;
+    }
+
     if (this.data.joinNum < this.data.chooseNum){
       wxUtils.showPopMessage('选中人数太多啦', false, 1500);
       return;

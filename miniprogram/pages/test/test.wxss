@@ -1,1 +1,5 @@
 /* miniprogram/pages/test/test.wxss */
+.button{
+  width: 200rpx;
+  height: 100rpx;
+}

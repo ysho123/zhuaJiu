@@ -25,7 +25,7 @@
 
 .middleArea{
   width: 100%;
-  height: 70%;
+  height: 65%;
   /* background-color: green; */
   /* opacity: 0.4;  */
   display: flex;
@@ -48,6 +48,12 @@
 
 .questionTitle{
   margin-bottom: 60rpx;
+  letter-spacing: 5rpx;
+  font-family: "黑体";
+  font-weight: bold;
+  color: #000;
+  width:80%;
+  text-align : center;
 }
 
 .clickBtn{
@@ -64,17 +70,39 @@
   border: none; 
 }
 
-.middle_shareBtn{
-  width: 288rpx;
-  height:108rpx;
-  background-image : url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/goPage/shareBtn.png');
+.middleShareArea{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.middle_shareBtn1{
+  width: 268rpx;
+  height:90rpx;
+  background-image : url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/goPage/shareToFriend.png');
   background-color: transparent;
-  background-size:288rpx 108rpx;
+  background-size:268rpx 90rpx;
+  margin-top: 10rpx;
+}
+
+.middle_shareBtn2{
+  width: 268rpx;
+  height:90rpx;
+  background-image : url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/goPage/shareToCircle.png');
+  background-color: transparent;
+  background-size:268rpx 90rpx;
   margin-top: 10rpx;
 }
 
 .btn_active{
   transform: scale(1.1);
+}
+
+.middle_hit{
+  width: 531rpx;
+  height: 48rpx;
 }
 
 .backIndex{
@@ -91,7 +119,7 @@
 
 .bottomArea{
   width: 100%;
-  height: 15%;
+  height: 20%;
   /* background-color: yellow; */
   opacity: 0.4;
 }
