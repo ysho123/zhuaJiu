@@ -9,7 +9,6 @@ const db = cloud.database({
   env: 'rea-a6b48a'
 });
 
-
 // 云函数入口函数
 exports.main = async (event, context) => {
   let { avatarUrl, city, country, gender, nickName, province} = event ;

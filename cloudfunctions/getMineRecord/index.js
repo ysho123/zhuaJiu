@@ -10,9 +10,13 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
-cloud.init({})
+cloud.init({
+  env: 'rea-a6b48a'
+})
 
-const db = cloud.database({});
+const db = cloud.database({
+  env: 'rea-a6b48a'
+});
 
 const command = db.command
 

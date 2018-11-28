@@ -4,9 +4,13 @@ const rp = require('request-promise');
 const uuidv1 = require('uuid/v1');
 const fs = require('fs')
 
-cloud.init()
+cloud.init({
+  env: 'rea-a6b48a'
+})
 
-const db = cloud.database();
+const db = cloud.database({
+  env: 'rea-a6b48a'
+});
 
 // 云函数入口函数
 exports.main = async (event, context) => {
