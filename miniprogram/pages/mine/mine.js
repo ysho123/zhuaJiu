@@ -46,7 +46,7 @@ Page({
     let reqType = (clickId == 1 ? 'mineCreate' : 'mineJoin');
 
     wxUtils.request('getMineRecord', { listType: reqType },(res)=>{
-      console.log('minePage',res);
+      // console.log('minePage',res);
       this.setData({
         resultList : res.result.list
       });
@@ -55,12 +55,12 @@ Page({
 
   // 跳转活动结果页
   goResult:function(e){
-    console.log(e);
+    // console.log(e);
     let ac_id = e.currentTarget.dataset.id ;
     let ac_name = e.currentTarget.dataset.acname;
-    console.log(this.data.clickid)
+    // console.log(this.data.clickid)
     wx.redirectTo({
-      url: `../result/result?ac_id=${ac_id}&ac_Name=${ac_name}`,
+      url: `/pages/goPage/goPage?ac_id=${ac_id}&ac_Name=${ac_name}`,
     })
   },
   /**

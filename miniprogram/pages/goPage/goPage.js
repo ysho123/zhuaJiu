@@ -2,7 +2,6 @@
 let wxUtils = require('../../wxUtils/wxUtils.js');
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -33,7 +32,17 @@ Page({
     });
     wx.setNavigationBarTitle({ title: ac_Name});
 
-    this.userLogin();
+    //如果已经参与过了本次活动,直接跳转到结果页
+    wxUtils.request('judgeHasJoined', { ac_id: ac_id},(res)=>{
+      let hasJoined = res.result.code;
+      if (hasJoined){
+        wx.navigateTo({
+          url: `/pages/result/result?ac_id=${ac_id}&ac_Name=${ac_Name}`,
+        })
+      }else{
+        this.userLogin();
+      }
+    })
   },
 
   userLogin(){

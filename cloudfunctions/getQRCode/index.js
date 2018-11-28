@@ -7,7 +7,6 @@ const fs = require('fs')
 cloud.init({
   env: 'rea-a6b48a'
 })
-
 const db = cloud.database({
   env: 'rea-a6b48a'
 });

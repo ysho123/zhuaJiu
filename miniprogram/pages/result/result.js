@@ -28,7 +28,7 @@ Page({
 
     if(ac_id){
       wxUtils.request('getUserList', {ac_id} ,(res)=>{
-        console.log('结果页',res);
+        // console.log('结果页',res);
         let result = res.result;
         if (result && result.code == 1){
             this.setData({
@@ -42,7 +42,7 @@ Page({
 
   refresh(){
     wxUtils.request('getUserList', { ac_id : this.data.ac_id }, (res) => {
-      console.log(res);
+      // console.log(res);
       let result = res.result;
       if (result && result.code == 1) {
         this.setData({
@@ -54,14 +54,14 @@ Page({
   },
 
   getShareImage(e) {
-    console.log('getImage');
+    // console.log('getImage');
     this.setData({
       showSharedPic: true
     })
   },
 
   closeComponent(e) {
-    console.log('close Component');
+    // console.log('close Component');
     this.setData({
       showSharedPic: false
     })

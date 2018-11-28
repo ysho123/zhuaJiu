@@ -1,15 +1,11 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-
-
 cloud.init({
   env: 'rea-a6b48a'
 })
-
 const db = cloud.database({
   env: 'rea-a6b48a'
 });
-
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -33,7 +29,7 @@ async function getuserListInfo(db, ac_id, openId) {
   }).get();
 
   let userList = res.data;
-
+  
   return userList;
 }
 

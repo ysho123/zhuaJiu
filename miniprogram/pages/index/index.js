@@ -14,7 +14,7 @@ Page({
   onLoad: function() {
     //获得openId
     wxUtils.getOpenId((openId)=>{
-      console.log(openId);
+      // console.log(openId);
       //判断此用户有没有在数据库留下记录
       wxUtils.hasUserInfo(()=>{
         this.setData({
@@ -24,13 +24,13 @@ Page({
       );
     },
     (err)=>{
-      console.log(err);
+      // console.log(err);
     },
     )
   },
 
   getUserInfo(res) {
-    console.log(res);
+    // console.log(res);
     if (res.detail.userInfo) {
       let userInfo = res.detail.userInfo;
       wxUtils.request('userLogin', userInfo,(res)=>{
