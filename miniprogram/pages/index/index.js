@@ -124,12 +124,22 @@ Page({
     wxUtils.request('createRoom', data,(res)=>{
       let ac_id = res.result.ac_id ;
       wx.navigateTo({
-        url: `/pages/goPage/goPage?ac_id=${ac_id}&ac_Name=${self.data.inputContent}`,
+        url: `/pages/goPage/goPage?ac_id=${ac_id}&ac_Name=${self.data.inputContent}&creater=true`,
       })
     },
     (err)=>{
 
     });
   },
+
+  /**
+  * 用户点击右上角分享
+  */
+  onShareAppMessage: function (e) {
+    return {
+      title: `抽出一个最幸运(或最倒霉)吧~`,
+      path: `pages/index/index`
+    }
+  }
 
 })

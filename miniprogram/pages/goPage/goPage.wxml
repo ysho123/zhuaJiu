@@ -22,7 +22,7 @@
 
   </view>
 
-  <sharedComponent class='sharePicArea' wx:if='{{showSharedPic}}' bind:closeComponent="closeComponent">
-    
-  </sharedComponent>
+  <!-- 生成分享图组件 -->
+  <sharedComponent class='sharePicArea' wx:if='{{showSharedPic}}' ac_id='{{ac_id}}' ac_Name='{{ac_Name}}'  bind:closeComponent="closeComponent"></sharedComponent>
+
 </view>

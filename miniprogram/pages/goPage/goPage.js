@@ -10,7 +10,7 @@ Page({
     ac_id : '',//当前活动id
     ac_Name : '今天谁去拿外卖',
     needLog : false,//需要授权吗？
-    hasShared : false,//是否已经分享过了
+    hasShared : true,//是否已经分享过了
     showSharedPic : false,//是否展示分享图片
   },
 
@@ -18,7 +18,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options);
+    //如果是自己创建的活动，需要分享后才能打开，其他人不用
+    if (options.creater){
+      this.setData({
+        hasShared : false
+      });
+    }
+
     let { ac_Name,ac_id} = options;
     this.setData({
       ac_id : ac_id,
@@ -32,7 +39,7 @@ Page({
   userLogin(){
     //获得openId
     wxUtils.getOpenId((openId) => {
-      console.log(openId);
+      // console.log(openId);
       //判断此用户有没有在数据库留下记录
       wxUtils.hasUserInfo(() => {
         this.setData({
@@ -42,12 +49,12 @@ Page({
       );
     },
     (err) => {
-        console.log(err);
+        // console.log(err);
       })
   }, 
 
   getUserInfo(res) {
-    console.log(res);
+    // console.log(res);
     if (res.detail.userInfo) {
       let userInfo = res.detail.userInfo;
       wxUtils.request('userLogin', userInfo, (res) => {
@@ -102,7 +109,7 @@ Page({
 
     function failFuc(err){
       let self = this;
-      console.log('抽签请求错误', err)
+      // console.log('抽签请求错误', err)
     }
     function complete(){
       let self = this;
@@ -110,14 +117,15 @@ Page({
   },
 
   getShareImage(e){
-    console.log('getImage');
+    // console.log('getImage');
     this.setData({
+      hasShared : true,
       showSharedPic : true
     })
   },
 
   closeComponent(e){
-    console.log('close Component');
+    // console.log('close Component');
     this.setData({
       showSharedPic: false
     })

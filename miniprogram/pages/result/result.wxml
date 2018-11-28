@@ -6,7 +6,8 @@
 
   <view class='middleArea'>
     <view class='middle_container'>
-        <view class='backIndex' hover-class='btn_active' hover-stay-time='100' bindtap='backIndex'></view>  
+        <view class='backIndex' hover-class='btn_active' hover-stay-time='100' bindtap='backIndex'></view>
+        <view class='checkAgain' hover-class='btn_active' hover-stay-time='100' bindtap='backIndex'></view>
 
         <view class='middle_wordInfo'>
           <view class='middle_title'>{{ac_Name}}</view>
@@ -27,10 +28,17 @@
 
     <view class='refresh' hover-class='btn_active' hover-stay-time='100' bindtap='refresh'>刷新结果</view>
 
-    <button class='middle_shareBtn' hover-class='btn_active' open-type='share'></button>
+    <view class='middleShareArea'>
+        <button class='middle_shareBtn2' hover-class='btn_active' bindtap='getShareImage'></button>
+        <button class='middle_shareBtn1' hover-class='btn_active' open-type='share'></button>
+    </view>
   </view>
 
   <view class='bottomArea'>
 
   </view>
+
+  <!-- 生成分享图组件 -->
+  <sharedComponent class='sharePicArea' wx:if='{{showSharedPic}}' ac_id='{{ac_id}}' ac_Name='{{ac_Name}}'  bind:closeComponent="closeComponent"></sharedComponent>
+
 </view>

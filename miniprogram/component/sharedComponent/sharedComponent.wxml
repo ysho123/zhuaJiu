@@ -1,4 +1,8 @@
 <!--component/sharedComponent/sharedComponent.wxml-->
-<button bindtap='getQrFileId' class='button'>干他</button>
-<canvas canvas-id='shareCanvas' style="width: 750rpx; height: 1000rpx;position:absolute;left:-750rpx;"></canvas>
-<image src='{{picSrc}}' style="width: 750rpx; height: 1000rpx;" bindtap='showPic'></image>
+
+<canvas canvas-id='shareCanvas' class='shareCanvas'></canvas>
+
+<view class='wrapper'>
+  <image src='{{picSrc}}' class='shareImage' bindtap='showPic'></image>
+  <button bindtap='closeComponent' class='button' hover-class='btn_active'></button>
+</view>

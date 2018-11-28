@@ -28,13 +28,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "goPage",
 					"pathName": "pages/goPage/goPage",
-					"query": "ac_id=W-okzbdokuiPKr_3"
+					"query": "ac_id=W-okzbdokuiPKr_3&ac_Name=今天谁起那外卖啊"
 				},
 				{
 					"id": -1,

@@ -9,8 +9,9 @@ Page({
   data: {
     mySelfInfo : {},
     userListInfo : [],
-    ac_id : '',
-    ac_Name : '',
+    ac_id: '',//当前活动id
+    ac_Name: '今天谁去拿外卖',
+    showSharedPic : false,//是否展示分享图
   },
 
   /**
@@ -50,6 +51,20 @@ Page({
         })
       }
     });
+  },
+
+  getShareImage(e) {
+    console.log('getImage');
+    this.setData({
+      showSharedPic: true
+    })
+  },
+
+  closeComponent(e) {
+    console.log('close Component');
+    this.setData({
+      showSharedPic: false
+    })
   },
 
   /**

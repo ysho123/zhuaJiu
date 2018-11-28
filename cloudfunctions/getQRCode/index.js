@@ -10,12 +10,14 @@ const db = cloud.database();
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  let {ac_id,ac_Name} = event ;
+
   let accessResult = await getAccessToken(rp, db); 
   if (accessResult.code != 1) return accessResult;
 
   let accessToken = accessResult.accessToken;
   
-  let qrCodeRes = await getQrCode(rp,accessToken);
+  let qrCodeRes = await getQrCode(rp, accessToken, ac_id, ac_Name);
 
   let cloudStorageRes = await getCloudStorageId(qrCodeRes);
 
@@ -159,14 +161,14 @@ async function coverTheDb(db, accessResult, dbResult){
   }
 }
 
-async function getQrCode(rp,accessToken){
+async function getQrCode(rp, accessToken, ac_id, ac_Name){
   //获取带参数的二维码  
   console.log('QRInPara', accessToken);
-
+  
   let jsonStr = {
-    "path":"pages/index/index",
+    "path": "pages/goPage/goPage?ac_id=" + ac_id + "&ac_Name=" + ac_Name,
     "auto_color" : true,
-    // "is_hyaline" : true,
+    "is_hyaline" : true,
     "width" : 300
   };
 

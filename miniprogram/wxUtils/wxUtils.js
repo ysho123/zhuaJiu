@@ -95,10 +95,8 @@ let wxUtils = {
       title: '提示',
       content: '分享之后才能抽签哟',
       showCancel: false,
-      cancelText:'取消',
-      cancelColor:'#000000',
       confirmText: '好的',
-      confirmColor: '	#FF8C00',
+      // confirmColor: '	#000000',
       success : (res)=>{
         if (res.confirm) {
           console.log('用户点击确定')

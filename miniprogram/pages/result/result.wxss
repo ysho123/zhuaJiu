@@ -32,6 +32,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  position: relative;
 }
 
 .middle_container{
@@ -128,12 +129,29 @@
   text-decoration: underline;
 }
 
-.middle_shareBtn{
-  width: 266rpx;
-  height:110rpx;
-  background-image : url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/result/share_btn.png');
+.middleShareArea{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.middle_shareBtn1{
+  width: 268rpx;
+  height:90rpx;
+  background-image : url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/goPage/shareToFriend.png');
   background-color: transparent;
-  background-size:266rpx 110rpx;
+  background-size:268rpx 90rpx;
+  margin-top: 10rpx;
+}
+
+.middle_shareBtn2{
+  width: 268rpx;
+  height:90rpx;
+  background-image : url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/goPage/shareToCircle.png');
+  background-color: transparent;
+  background-size:268rpx 90rpx;
   margin-top: 10rpx;
 }
 
@@ -158,4 +176,25 @@
   height: 10%;
   /* background-color: yellow; */
   opacity: 0.4;
+}
+
+.checkAgain{
+  width: 122rpx;
+  height: 122rpx;
+  background-image: url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/result/checkAgain.png');
+  background-size: 122rpx 122rpx;
+  background-repeat :no-repeat;
+  background-position : center;
+  position: absolute;
+  right: -50rpx;
+  bottom: 20rpx;
+  animation: scaleButton 2s linear infinite;
+}
+
+@keyframes scaleButton{
+  0%   {transform: scale(0.9)}
+  25%  {transform: scale(1)}
+  50% {transform: scale(1.1)}
+  75%  {transform: scale(1)}
+  100% {transform: scale(0.9)}
 }

@@ -1,1 +1,34 @@
 /* component/sharedComponent/sharedComponent.wxss */
+.wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.shareCanvas{
+  width: 360px; 
+  height: 500px;
+  position:absolute;
+  left:-750rpx;
+}
+
+.shareImage{
+  width: 360px;
+  height: 500px;
+}
+
+.button{
+  width:180rpx;
+  height:90rpx;
+  background-image:url('https://game-1256868251.cos.ap-guangzhou.myqcloud.com/zhuajiu/qrCode/close.png');
+  background-color:transparent;
+  background-size:180rpx 90rpx;
+  margin-top:10rpx;
+}
+
+.btn_active{
+  transform: scale(1.1);
+}
